@@ -16,11 +16,20 @@ new Vue({
       var min = 3;
       var damage = Math.max(Math.floor(Math.random() * max) + 1, min);
       this.monsterHealth -= damage;
+      if (this.monsterHealth <= 0) {
+        alert('you won');
+        this.gameIsRunning = false;
+        return;
+      }
 
       max = 12;
       min = 5;
       var damage = Math.max(Math.floor(Math.random() * max) + 1, min);
       this.playerHealth -= damage;
+      if (this.playerHealth <= 0) {
+        alert('monster won');
+        this.gameIsRunning = false;
+      }
     },
     specialAttack: function() {},
     heal: function() {},
